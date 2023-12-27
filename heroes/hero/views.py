@@ -5,9 +5,10 @@ from rest_framework.views import APIView
 
 
 class HeroList(APIView):
-
+    url = "http://gateway.marvel.com/v1/public/characters?ts=100&apikey=16e90537a937e7b409088e3f860ebab2&hash=107b7a9b68745b0157bb5e2def3130d8"
+    
     def get(self, request, format=None):
-        response = requests.get("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=16e90537a937e7b409088e3f860ebab2&hash=74bbf5881022288b961e45977482d945")
+        response = requests.get(self.url, verify=False)
         return Response({"1": 1})
 
 
